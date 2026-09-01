@@ -6,26 +6,23 @@ export default function Expertise() {
     <SectionShell id="expertise">
       <SectionHeading
         eyebrow="Expertise"
-        title="Where statistics, AI, and product engineering meet"
-        lead="A senior practice spanning model thinking, enterprise software, and systems that have to work under operational pressure."
+        title="A practice built at the intersection of models and systems"
+        lead="Eight capabilities I use together — not as a checklist of buzzwords, but as one delivery loop from signal to shipped product."
       />
 
-      <div className="mt-12 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {expertise.map((item, index) => (
-          <article
+      <ol className="mt-8 divide-y divide-border border-y border-border">
+        {expertise.map((item) => (
+          <li
             key={item.title}
-            className="group rounded-2xl border border-border bg-card p-5 transition hover:border-accent/40"
+            className="grid gap-2 py-4 sm:grid-cols-[13rem_1fr] sm:gap-6 sm:py-5"
           >
-            <p className="font-mono text-[0.68rem] tracking-[0.14em] text-secondary uppercase">
-              {String(index + 1).padStart(2, "0")}
-            </p>
-            <h3 className="mt-4 text-lg font-semibold tracking-tight text-foreground">
+            <h3 className="text-lg font-semibold tracking-tight text-foreground">
               {item.title}
             </h3>
-            <p className="mt-3 text-sm leading-7 text-muted">{item.detail}</p>
-          </article>
+            <p className="text-[0.98rem] leading-7 text-muted sm:max-w-2xl">{item.detail}</p>
+          </li>
         ))}
-      </div>
+      </ol>
     </SectionShell>
   );
 }

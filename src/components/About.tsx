@@ -1,38 +1,62 @@
 import { about } from "@/data/portfolio";
 import { SectionHeading, SectionShell } from "@/components/ui/Section";
 
+const pillars = [
+  { label: "Build", value: "Production web apps, dashboards, and data products." },
+  { label: "Analyze", value: "Statistics, ML, and BI that inform real decisions." },
+  { label: "Automate", value: "Reporting pipelines and systems that reduce manual work." },
+  { label: "Solve", value: "Operational problems across fleet, HR, and business systems." },
+] as const;
+
+function renderWithBold(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+
+  return parts.map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={index} className="font-semibold text-foreground">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 export default function About() {
   return (
     <SectionShell id="about">
-      <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-        <SectionHeading eyebrow={about.label} title={about.title} />
+      <SectionHeading eyebrow={about.label} title={about.title} />
 
-        <div className="space-y-6 lg:pt-10">
+      <div className="mt-8 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
+        <div className="space-y-5">
           {about.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 40)} className="text-[1.05rem] leading-8 text-muted">
-              {paragraph}
+            <p
+              key={paragraph.slice(0, 48)}
+              className="text-[1.02rem] leading-8 text-muted"
+            >
+              {renderWithBold(paragraph)}
             </p>
           ))}
 
-          <div className="grid gap-3 pt-2 sm:grid-cols-2">
-            {[
-              { label: "Focus", value: "Production AI & Analytics" },
-              { label: "Domain", value: "Fleet · Ops · Enterprise AI" },
-              { label: "Strength", value: "Decision systems end-to-end" },
-              { label: "Approach", value: "Statistics + software delivery" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="rounded-2xl border border-border bg-gradient-to-br from-card to-card-elevated px-4 py-4"
-              >
-                <p className="font-mono text-[0.68rem] tracking-[0.14em] text-secondary uppercase">
-                  {item.label}
-                </p>
-                <p className="mt-2 text-sm font-medium text-foreground">{item.value}</p>
-              </div>
-            ))}
-          </div>
+          <p className="border-t border-border pt-5 text-[1.02rem] font-semibold leading-8 text-foreground">
+            {about.tagline}
+          </p>
         </div>
+
+        <aside className="border border-border bg-card">
+          {pillars.map((item, index) => (
+            <div
+              key={item.label}
+              className={`px-5 py-4 ${index < pillars.length - 1 ? "border-b border-border" : ""}`}
+            >
+              <p className="font-mono text-[0.65rem] tracking-[0.16em] text-accent uppercase">
+                {item.label}
+              </p>
+              <p className="mt-2 text-sm leading-7 text-foreground/90">{item.value}</p>
+            </div>
+          ))}
+        </aside>
       </div>
     </SectionShell>
   );

@@ -1,14 +1,11 @@
 import About from "@/components/About";
 import BackToTop from "@/components/BackToTop";
-import BusinessImpact from "@/components/BusinessImpact";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
-import Expertise from "@/components/Expertise";
 import Footer from "@/components/Footer";
-import GitHubSection from "@/components/GitHub";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
-import Research from "@/components/Research";
+import ParticleSwarm from "@/components/ParticleSwarm";
 import TechStack from "@/components/TechStack";
 
 export default function Home() {
@@ -16,14 +13,11 @@ export default function Home() {
     <>
       <Hero />
       <main id="main-content">
-        <Projects />
         <About />
+        <Projects />
         <Experience />
-        <Expertise />
+        <ParticleSwarm />
         <TechStack />
-        <BusinessImpact />
-        <Research />
-        <GitHubSection />
         <Contact />
       </main>
       <Footer />

@@ -1,9 +1,11 @@
 export const siteConfig = {
   name: "Simon Musyoki",
-  title: "Simon Musyoki — Senior Data Scientist | AI & Analytics Engineer",
+  title: "Simon Musyoki — Data Scientist",
   description:
     "Data Scientist at Controltech Limited designing and deploying production-grade AI, analytics, and fleet intelligence systems across East Africa.",
-  role: "Data Scientist | Statistician | AI & Analytics Engineer",
+  role: "Data Scientist",
+  heroRoles: "Data Scientist",
+  tagline: "I turn operational noise into systems leadership can run.",
   headline:
     "Building production-grade AI, analytics, and intelligent decision-support systems that transform complex data into measurable business value.",
   email: "simonmusyoki2019@gmail.com",
@@ -14,6 +16,7 @@ export const siteConfig = {
   social: {
     linkedin: "https://www.linkedin.com/in/simon-musyoki-64a52232a/",
     github: "https://github.com/Simonrank",
+    whatsapp: "https://wa.me/254792162750",
   },
   employer: {
     title: "Data Scientist",
@@ -31,7 +34,7 @@ export const heroMetrics = [
   },
   {
     label: "Enterprise Solutions",
-    value: "6+",
+    value: "4+",
     detail: "Production systems",
   },
   {
@@ -42,22 +45,21 @@ export const heroMetrics = [
 ] as const;
 
 export const navLinks = [
-  { href: "#work", label: "Work" },
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#expertise", label: "Expertise" },
-  { href: "#impact", label: "Impact" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
 ] as const;
 
 export const about = {
   label: "About",
-  title: "I design decision systems, not demos.",
+  title: "About Me",
   paragraphs: [
-    "I am a Data Scientist at Controltech Limited, where I design and ship production analytics platforms for telematics and fleet operations across East Africa. My work sits at the intersection of statistics, machine learning, AI, and software engineering — turning live operational data into systems leaders can run the business on.",
-    "I build end-to-end products: data pipelines, models and retrieval systems, secure multi-role applications, and dashboards that replace fragmented spreadsheets and telematics screens. The goal is always the same — reduce ambiguity, surface risk early, and make high-stakes operational decisions faster and more defensible.",
-    "Whether the problem is fuel-theft detection, fleet health escalation, SOP-aware AI assistance, or multi-tenant workforce platforms, I own the path from problem framing to production deployment.",
+    "I'm a **Data Scientist** at Controltech Limited. I build production systems that turn telematics, operations, and business data into decisions people can run.",
+    "The work spans **fleet intelligence, RAG assistants, and operational products** — Next.js, Python, SQL, and the data layer underneath. I ship the dashboard, the pipeline, and the access model, not just the notebook.",
+    "If it doesn't change what an operator, manager, or finance lead does on Monday, it isn't finished.",
   ],
+  tagline: "I build. I analyze. I automate. I solve problems.",
 } as const;
 
 export const experience = [
@@ -68,70 +70,65 @@ export const experience = [
     location: "Kenya & East Africa",
     current: true,
     summary:
-      "Leading provider of Telematics & Fleet Management solutions in Kenya and East Africa. I design and deploy production-ready analytics solutions that combine statistical methods, machine learning, artificial intelligence, and software engineering.",
+      "I design and ship production analytics and AI systems for telematics and fleet operations — from ingest and models to the portals controllers, support, and leadership actually run.",
     highlights: [
-      "Ship full-stack fleet intelligence platforms that unify telematics, fuel analytics, camera health, and escalation workflows for 400+ tracked units.",
-      "Build AI systems grounded in company knowledge — including an Odoo SOP helpdesk using RAG over internal documentation.",
-      "Partner with operations, support, and leadership to convert noisy operational data into decision-ready portals, alerts, and audit-friendly reporting.",
-      "Own production concerns end to end: auth, role-based access, sync pipelines, database migrations, Vercel deploys, and reliable release hygiene.",
+      "Fleet intelligence for 400+ tracked units: utilization, fuel, exceptions, and analysis windows in one operational picture.",
+      "Internal RAG helpdesk over ERP SOPs so staff get grounded, step-by-step answers instead of interrupting managers.",
+      "Role-aware portals and audit-friendly reporting so operations stop reconciling spreadsheets against vendor consoles.",
+      "Production ownership end to end: auth, RBAC, sync pipelines, migrations, and reliable Vercel releases.",
     ],
+    focus: ["Python", "SQL", "Next.js", "Wialon API", "RAG", "PostgreSQL"],
   },
   {
     title: "Data Analyst Intern",
     company: "Salama Youth Hub",
-    period: "October 2024 – Present",
+    period: "Oct 2024 – Present",
     location: "Kenya",
     current: false,
     summary:
-      "Analytics and quality-systems support for youth and standards-aligned programs.",
+      "Dashboards and quality-systems support for youth and standards-aligned programs.",
     highlights: [
-      "Developed interactive dashboards in Power BI and Tableau, reducing reporting time by 25% and enabling faster data-driven decisions for stakeholders.",
-      "Coordinated logistics and managed the National Quality Institute (NQI) Integrated Management Systems (IMS), ensuring 100% compliance with quality standards.",
-      "Collaborated on module development, conferences, and stakeholder engagement activities.",
+      "Power BI and Tableau dashboards that cut reporting time by 25%.",
+      "NQI Integrated Management Systems coordination at 100% standards compliance.",
     ],
   },
   {
     title: "Survey Analyst",
     company: "Reuben Centre",
-    period: "September 2024",
+    period: "Sep 2024",
     location: "Kenya",
     current: false,
     summary:
-      "Led a research engagement that informed organizational rebranding and program strategy.",
+      "Research engagement that informed organizational rebranding and program strategy.",
     highlights: [
-      "Led a comprehensive survey with 300+ participants to identify organizational strengths and community needs.",
-      "Analyzed complex survey data and provided insights that guided the Centre's rebranding and strategic decisions.",
-      "Designed structured survey tools ensuring alignment with business objectives.",
-      "Presented findings to leadership, influencing upcoming program strategies.",
+      "Led a 300+ participant survey; analysis briefed leadership and shaped strategy.",
+      "Designed survey instruments aligned to the Centre's actual decision questions.",
     ],
   },
   {
     title: "Enumerator",
     company: "Ministry of Labour and Social Protection",
-    period: "October 2024",
+    period: "Oct 2024",
     location: "Kenya",
     current: false,
     summary:
-      "Field data collection for welfare and social protection programs with emphasis on completeness and accuracy.",
+      "Field collection for welfare and social protection programs — completeness first.",
     highlights: [
-      "Conducted household surveys and interviews ensuring 100% data completeness and accuracy for welfare and social protection programs.",
-      "Improved response clarity and reduced survey errors by 15% through effective communication.",
-      "Worked with field teams to streamline data collection and ensure timely submissions.",
+      "Household surveys with 100% completeness on assigned welfare caseloads.",
+      "Reduced survey errors by 15% through clearer field communication.",
     ],
   },
   {
     title: "Attachment — NQI Department",
     company: "Kenya Bureau of Standards",
-    period: "April – July 2024",
+    period: "Apr – Jul 2024",
     location: "Kenya",
     current: false,
     summary:
-      "Program analytics and youth engagement support within the National Quality Institute department.",
+      "Program analytics and reporting inside the National Quality Institute.",
     highlights: [
-      "Analyzed beneficiary and program data to assess effectiveness and identify improvement areas.",
-      "Prepared monthly analytical reports that informed program strategy and service delivery.",
-      "Facilitated youth support groups, increasing participation in programs by 30%.",
-      "Tracked key performance metrics and presented insights to the leadership team.",
+      "Monthly analytical reports that informed program strategy and delivery.",
+      "Tracked KPIs and briefed leadership; youth program participation up 30%.",
     ],
   },
 ] as const;
@@ -140,35 +137,32 @@ export const education = [
   {
     institution: "Moringa School",
     detail: "Advanced Data Science Program",
-    period: "Graduated November 14, 2025",
+    period: "2025",
+    kind: "program",
   },
   {
     institution: "Karatina University",
     detail: "BSc. Applied Statistics with Computing — Second Class Honors",
     period: "Degree",
+    kind: "degree",
   },
   {
-    institution: "Allison",
-    detail: "Google Analytics 4 Certification",
+    institution: "Google Analytics 4",
+    detail: "Allison",
     period: "Certificate",
-  },
-  {
-    institution: "Miccato America Share",
-    detail: "Certificate in Computer Packages",
-    period: "Certificate",
-  },
-  {
-    institution: "Makindu Boys' School",
-    detail: "Kenya Certificate of Secondary Education (KCSE)",
-    period: "KCSE",
+    kind: "certificate",
   },
 ] as const;
+
+export type ChallengeCategory = "Performance" | "Architecture" | "UI/UX" | "DevOps";
 
 export type Project = {
   id: string;
   title: string;
+  subtitle?: string;
   org: string;
   tag: string;
+  featured?: boolean;
   problem: string;
   solution: string;
   impact: string[];
@@ -176,100 +170,77 @@ export type Project = {
   stack: string[];
   outcome: string;
   image?: string;
+  challengeCategory?: ChallengeCategory;
+  metrics?: { label: string; value: string }[];
+  hardestBug?: string;
+  architectureDiagram?: string;
+  retrospectiveSteps?: { day: number; title: string; description: string }[];
+  descriptionTech?: string;
+  liveDemoUrl?: string;
+  githubUrl?: string;
+  bookDemo?: boolean;
 };
 
 export const projects: Project[] = [
   {
-    id: "kasulu",
-    title: "Rai Group Kasulu / Kabras Fleet Intelligence",
-    org: "Controltech · Rai Group",
-    tag: "Fleet Intelligence",
+    id: "fleet-intelligence",
+    featured: true,
+    title: "Fleet Management & Telematics Intelligence",
+    subtitle: "Turning vehicle telemetry into decisions operators can act on",
+    org: "Production work in telematics & fleet operations",
+    tag: "Featured · Fleet Intelligence",
+    image: "/images/projects/fleet-telematics-dashboard.png",
     problem:
-      "Ops teams tracked vehicle health, fuel risk, and camera/tracker status across disconnected telematics screens and spreadsheets — too slow for daily control of a large sugar/fleet operation.",
+      "Telematics platforms collect GPS, engine, fuel, and sensor data at scale — but operations teams still jump between tracking consoles, spreadsheets, and ERP screens. The data exists. The decision layer does not.",
     solution:
-      "A secure full-stack operations portal that combines live Wialon telematics, fuel-theft analytics, Howen VSS camera matching, Google Sheets reporting windows, and a Connection Status Escalation Matrix in one decision-ready workspace.",
+      "I design and ship web applications that ingest live telematics through the Wialon API, process it into operational metrics, and present it in one place: vehicles, utilization, fuel, driver events, and performance. Where it adds value, that same data is connected to business and ERP systems so fleet activity sits next to commercial operations.",
     impact: [
-      "Production fleet of ~400+ Track3 units with daily ON / OFF / N/A status history",
-      "Auto-created Tracker Offline escalations after three consecutive OFF days",
-      "Unified portal replacing fragmented spreadsheets and telematics consoles",
-      "Role-based access from Super Admin through CT Support, plus public incident reporting",
+      "Live and historical fleet view from a single operational dashboard",
+      "Fuel consumption, top-ups, efficiency, and theft events as first-class KPIs",
+      "Selectable analysis windows so managers can investigate today, 7 days, or 30 days",
+      "Faster operational decisions without reconciling disconnected telematics screens",
     ],
     features: [
-      "Live GPS, utilization, and mobile status ingestion from Wialon",
-      "Fuel-theft analytics over selectable analysis windows",
-      "Tracker / Probe / Camera health visibility day by day",
-      "Escalation Matrix tickets with notifications and Support status overrides",
-      "Nightly sync / cron pipelines and audit history",
-      "Consolidated Supabase Postgres auth + fleet data (migrated off Neon)",
+      "Interactive dashboards for vehicles, mileage, engine hours, fuel, and utilization",
+      "Wialon API integration for real-time vehicle and sensor telemetry",
+      "Fuel-theft and incident views with filters by fleet and theft type",
+      "ERP and business-system integration for a unified operational picture",
+      "Historical analysis, performance monitoring, and automated reporting",
+      "Role-aware access for operations, support, and administration",
     ],
     stack: [
-      "Next.js",
-      "NextAuth",
-      "PostgreSQL",
-      "Supabase",
-      "Wialon",
-      "Google Sheets",
-      "Vercel",
-    ],
-    outcome:
-      "A production operations system that gives controllers and leadership one secure place to monitor fleet health, fuel risk, and escalations — with hardening for live login and reliable deploys.",
-    image: "/images/Aviation.jpeg",
-  },
-  {
-    id: "menengai",
-    title: "Menengai Oil Fleet Intelligence Platform",
-    org: "Controltech · Menengai Oil & Sukari Industries",
-    tag: "Multi-Org Analytics",
-    problem:
-      "Fuel loss, utilization, and driver behaviour insights were trapped in telematics exports and spreadsheet workflows across two business units — delaying audits and operational intervention.",
-    solution:
-      "A multi-organization fleet intelligence dashboard that turns telematics and spreadsheet data into actionable analytics for fuel theft, utilization, and driver risk — with secure org switching and export-ready reporting.",
-    impact: [
-      "Single source of truth for fleet risk and performance across Menengai and Sukari",
-      "Near-live monitoring of fuel-loss patterns and high-risk vehicles",
-      "Leadership visibility into peak loss periods, theft-type mix, and repeat offenders",
-      "One-click CSV / Excel / PDF exports for audit, finance, and operations",
-    ],
-    features: [
-      "Separate business-unit dashboards with shared authentication",
-      "Fuel theft analytics (direct vs return-pipe) and weekly trends",
-      "Repeat-offender watchlists, vehicle profiles, and ranked risk views",
-      "Google Sheets + Excel import paths for existing operating rhythms",
-      "Role-based access: Super Admin, Admin, Operator",
-    ],
-    stack: [
+      "Wialon API",
+      "Python",
+      "SQL",
       "Next.js",
       "TypeScript",
-      "Google Sheets",
-      "Analytics UI",
-      "Role-based Auth",
-      "Export Pipeline",
+      "React",
+      "Supabase",
+      "Power BI",
+      "REST APIs",
     ],
     outcome:
-      "Operations and leadership teams can identify suspicious vehicles faster, act on utilization and theft patterns, and leave fragmented Excel consolidation behind.",
-    image: "/images/yakwetu.jpeg",
+      "Fleet managers move from raw tracking data to a clear operational picture — what is happening across the fleet, where exceptions sit, and what to act on next.",
   },
   {
-    id: "odoo-ai",
-    title: "Controltech Odoo Helpdesk — AI Knowledge Assistant",
-    org: "Controltech Limited",
-    tag: "Enterprise AI · RAG",
+    id: "erp-ai-helpdesk",
+    title: "Enterprise AI Knowledge Assistant",
+    org: "Internal product · RAG",
+    tag: "Enterprise AI",
     problem:
-      "Staff across Kenya, Tanzania, and Uganda were hunting through SOPs or interrupting managers for routine Odoo process questions — creating delays and inconsistent guidance.",
+      "Staff across multiple countries were hunting through SOPs or interrupting managers for routine ERP process questions — creating delays and inconsistent guidance.",
     solution:
       "An internal AI helpdesk grounded in company Standard Operating Procedures via a Retrieval-Augmented Generation pipeline — so answers are step-by-step, sourced, and controllable by managers.",
     impact: [
-      "Production internal assistant for day-to-day Odoo process guidance",
-      "Living SOP knowledge base searchable across onboarding, job cards, expenses, and more",
-      "Paraphrase-tolerant retrieval reduces dependence on exact wording",
-      "Managers refresh knowledge via UI without redeploying the product",
+      "Production assistant for day-to-day ERP process guidance",
+      "Living SOP knowledge base that managers can update without redeploying",
+      "Paraphrase-tolerant retrieval so staff do not need exact wording",
     ],
     features: [
-      "RAG over SOPs and FAQs with Gemini for chat, embeddings, and document understanding",
-      "Hybrid retrieval: vector + keyword + title matching with synonym handling",
-      "Manager tools for PDF / DOCX / image upload, AI extraction, and reindexing",
-      "Staff vs Manager roles, chat history, activity logging",
-      "Rate limiting, safer no-match behaviour, and production API routes on Vercel",
+      "RAG over SOPs and FAQs with embeddings and document understanding",
+      "Hybrid retrieval: vector, keyword, and title matching",
+      "Manager tools for PDF / DOCX / image upload and reindexing",
+      "Staff vs Manager roles, chat history, and activity logging",
     ],
     stack: [
       "Next.js",
@@ -281,30 +252,29 @@ export const projects: Project[] = [
       "Vercel",
     ],
     outcome:
-      "Faster answers for staff, fewer interruptions for managers, and consistent, approved guidance from a shared source of truth across East African teams.",
-    image: "/images/chatbot.jpeg",
+      "Faster answers for staff, fewer interruptions for managers, and consistent guidance from a shared source of truth.",
   },
   {
     id: "rank-solutions",
-    title: "Rank-Solutions — HR & Payroll SaaS",
-    org: "Independent Product",
-    tag: "Multi-Tenant SaaS",
+    title: "Rank Solutions — HR & Payroll",
+    subtitle: "Workforce, leave, and attendance in one tenant-isolated product",
+    org: "Independent product",
+    tag: "Rank Solutions",
+    image: "/images/projects/rank-solutions-dashboard.png",
     problem:
-      "Growing SMEs still run leave, attendance, advances, and payslips through spreadsheets, WhatsApp, and email — creating delays, weak audit trails, and payroll confidentiality risk.",
+      "Growing companies still run leave, attendance, advances, and payslips through spreadsheets and chat — creating delays, weak audit trails, and payroll confidentiality risk.",
     solution:
-      "A multi-tenant HR platform where each company signs in with a company code into an isolated workspace, with role-aware portals for employees, managers, HR, and finance.",
+      "A multi-tenant HR platform where each organization operates in an isolated workspace, with portals for employees, managers, HR, and finance.",
     impact: [
-      "Digitized leave and advance approvals with structured queues instead of chat chaos",
-      "Employee self-service for leave, attendance, advances, and payslips",
-      "Password-protected payslip email delivery with request audit logging",
-      "SaaS-ready tenancy model for onboarding multiple companies",
+      "Structured leave and advance approvals instead of informal chat",
+      "Employee self-service for common people-process requests",
+      "Password-protected payslip delivery with request logging",
     ],
     features: [
-      "Tenant isolation via company code",
-      "Leave types, balances, and multi-step approvals",
-      "Attendance, org chart, and salary advance policies",
-      "JWT / session auth with portal access by role and position",
-      "Service-layer APIs on Next.js, TypeScript, Drizzle, PostgreSQL",
+      "Tenant isolation with role- and position-aware access",
+      "Leave workflows, attendance, org chart, and salary advances",
+      "Secure payslip retrieval by email with audit metadata",
+      "Service-layer APIs on Next.js, TypeScript, and PostgreSQL",
     ],
     stack: [
       "Next.js",
@@ -313,68 +283,34 @@ export const projects: Project[] = [
       "Drizzle",
       "PostgreSQL",
       "Supabase",
-      "Tailwind",
     ],
     outcome:
-      "One secure, sellable HR/payroll system that replaces informal people-process tooling with auditable workflows and clear permissions.",
-    image: "/images/sinema.jpeg",
+      "One secure HR/payroll system that replaces informal people-process tooling with auditable workflows.",
+    bookDemo: true,
   },
   {
     id: "libranest",
-    title: "LibraNest — Enterprise Library Platform",
-    org: "Independent Product",
+    title: "Library Management Platform",
+    org: "Independent product",
     tag: "Operations Platform",
     problem:
       "Libraries still rely on manual registers and spreadsheets for cataloging, circulation, fines, and reporting — losing stock visibility and slowing front-desk operations.",
     solution:
-      "A role-aware library management platform covering the full lifecycle: catalog, membership, issue/return/renew/reserve, fines, inventory audits, and usage analytics.",
+      "A role-aware platform covering catalog, membership, issue/return/renew/reserve, fines, inventory audits, and usage analytics.",
     impact: [
-      "End-to-end digital circulation with loan history and overdue tracking",
-      "Fine and payment flows that improve revenue recovery",
-      "Analytics for borrowing trends, category popularity, and member activity",
-      "Permission model spanning admins, librarians, teachers, and students",
+      "Digital circulation with loan history and overdue tracking",
+      "Fines and payment flows that improve revenue recovery",
+      "Analytics for borrowing trends and member activity",
     ],
     features: [
-      "Circulation workflows with limits, due dates, and overdue handling",
-      "Books, categories, locations, cards, and digital resources",
-      "Barcode / QR support, PDF/Excel exports, inventory auditing",
-      "Operational dashboards with campus-aware filtering",
+      "Circulation workflows with limits, due dates, and overdues",
+      "Barcode / QR support, exports, and inventory auditing",
+      "Permission model for admins, librarians, teachers, and students",
     ],
-    stack: [
-      "Next.js",
-      "TypeScript",
-      "MongoDB",
-      "Mongoose",
-      "TanStack Query",
-      "Auth",
-    ],
+    stack: ["Next.js", "TypeScript", "MongoDB", "Mongoose", "TanStack Query"],
     outcome:
       "A production-style operations product that turns a traditionally manual library into a measurable digital service.",
-    image: "/images/heartfailure.jpeg",
-  },
-  {
-    id: "tata-equator",
-    title: "TATA Fleet Insights & Equator Fleet Application",
-    org: "Controltech Limited",
-    tag: "Fleet Analytics",
-    problem:
-      "Enterprise fleet clients needed clearer utilization, exception monitoring, and operational reporting beyond raw telematics consoles.",
-    solution:
-      "Purpose-built fleet analytics applications that surface KPIs, exception patterns, and operational views tailored to each client’s control processes.",
-    impact: [
-      "Client-specific intelligence layers on top of telematics feeds",
-      "Faster exception review for controllers and account teams",
-      "Reporting surfaces aligned to commercial fleet operating models",
-    ],
-    features: [
-      "Fleet KPI dashboards and exception-oriented views",
-      "Secure access patterns for operational users",
-      "Analytics workflows designed for daily fleet control",
-    ],
-    stack: ["Next.js", "Telematics APIs", "PostgreSQL", "BI / Analytics UI"],
-    outcome:
-      "Expanded Controltech’s delivery of client-ready fleet intelligence products beyond a one-size-fits-all telematics screen.",
-    image: "/images/Background.jpeg",
+    bookDemo: true,
   },
 ];
 
@@ -431,16 +367,24 @@ export const techStack = [
     items: ["Scikit-learn", "Pandas", "NumPy", "TensorFlow"],
   },
   {
-    category: "Visualization",
-    items: ["Power BI", "Plotly", "Matplotlib", "Recharts"],
+    category: "Visualization & BI",
+    items: ["Power BI", "Tableau", "Excel", "Plotly", "Matplotlib", "Recharts"],
+  },
+  {
+    category: "Frontend",
+    items: ["Next.js", "React", "TanStack Query"],
   },
   {
     category: "Backend & Data",
-    items: ["Next.js", "PostgreSQL", "MongoDB", "Supabase"],
+    items: ["PostgreSQL", "MongoDB", "Supabase", "Drizzle", "Mongoose", "REST APIs"],
   },
   {
     category: "AI Systems",
     items: ["RAG", "pgvector", "Gemini", "Embeddings"],
+  },
+  {
+    category: "Integrations & Auth",
+    items: ["Wialon API", "Auth.js"],
   },
   {
     category: "Deployment",

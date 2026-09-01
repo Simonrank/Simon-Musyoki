@@ -26,7 +26,7 @@ export default function GitHubSection() {
       <div className="glass mt-10 overflow-hidden rounded-3xl p-5 sm:p-7">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="font-mono text-xs tracking-[0.14em] text-secondary uppercase">
+            <p className="font-mono text-xs tracking-[0.14em] text-signal uppercase">
               Contribution activity
             </p>
             <p className="mt-2 text-sm text-muted">@Simonrank · public contribution graph</p>
@@ -61,13 +61,13 @@ export default function GitHubSection() {
             className="group rounded-2xl border border-border bg-card p-5 transition hover:border-accent/45"
           >
             <div className="flex items-start justify-between gap-3">
-              <h3 className="font-semibold text-foreground group-hover:text-secondary">
+              <h3 className="font-semibold text-foreground group-hover:text-signal">
                 {repo.name}
               </h3>
               <ArrowUpRight className="h-4 w-4 text-muted" />
             </div>
             <p className="mt-3 text-sm leading-6 text-muted">{repo.description}</p>
-            <p className="mt-5 font-mono text-xs text-secondary">{repo.language}</p>
+            <p className="mt-5 font-mono text-xs text-signal">{repo.language}</p>
           </a>
         ))}
       </div>

@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/portfolio";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const display = Newsreader({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const body = IBM_Plex_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const mono = IBM_Plex_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -23,7 +32,6 @@ export const metadata: Metadata = {
     "Analytics Engineer",
     "Fleet Intelligence",
     "Machine Learning",
-    "Controltech",
     "Simon Musyoki",
   ],
   openGraph: {
@@ -47,12 +55,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}
+      className={`${display.variable} ${body.variable} ${mono.variable} h-full scroll-smooth`}
     >
       <body className="min-h-full bg-background font-sans text-foreground antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[200] focus:rounded-lg focus:bg-accent focus:px-3 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[200] focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-on-accent"
         >
           Skip to main content
         </a>

@@ -9,6 +9,7 @@ import type { EnrichedProject } from "./lib/enrich";
 import AnimatedStat from "./animated-stat";
 import MermaidDiagram from "./mermaid-diagram";
 import { CATEGORY_META } from "./lib/enrich";
+import { publicPath } from "@/lib/public-path";
 
 export default function ProjectDetail({ project }: { project: EnrichedProject }) {
   const [technical, setTechnical] = useState(false);
@@ -54,7 +55,7 @@ export default function ProjectDetail({ project }: { project: EnrichedProject })
       {project.image ? (
         <div className="mt-8 overflow-hidden border border-border">
           <Image
-            src={project.image}
+            src={publicPath(project.image)}
               alt={`${project.title} product screenshot`}
             width={1600}
             height={900}

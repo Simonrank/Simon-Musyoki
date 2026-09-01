@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     ? {
         output: "export" as const,
         basePath: "/Simon-Musyoki",
-        assetPrefix: "/Simon-Musyoki/",
+        assetPrefix: "/Simon-Musyoki",
         trailingSlash: true,
       }
     : {}),

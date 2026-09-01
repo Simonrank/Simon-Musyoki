@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { heroMetrics, siteConfig } from "@/data/portfolio";
 import { downloadCV } from "@/lib/download-cv";
+import { publicPath } from "@/lib/public-path";
 import Navbar from "./Navbar";
 
 export default function Hero() {
@@ -74,7 +75,7 @@ export default function Hero() {
         <div className="animate-rise-d2 mx-auto w-full max-w-md lg:max-w-none">
           <div className="overflow-hidden border border-border bg-card shadow-[0_24px_60px_-28px_rgba(26,25,22,0.35)]">
             <Image
-              src="/images/user.jpeg"
+              src={publicPath("/images/user.jpeg")}
               alt={`${siteConfig.name}, Data Scientist`}
               width={720}
               height={900}

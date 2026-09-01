@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/portfolio";
 import { SectionHeading, SectionShell } from "@/components/ui/Section";
 import { enrichProjects, CATEGORY_META } from "@/app/projects/lib/enrich";
+import { publicPath } from "@/lib/public-path";
 
 export default function Projects() {
   const items = enrichProjects(projects);
@@ -41,7 +42,7 @@ export default function Projects() {
                 {project.image ? (
                   <div className="hidden overflow-hidden border border-border bg-card lg:block">
                     <Image
-                      src={project.image}
+                      src={publicPath(project.image)}
                       alt=""
                       width={560}
                       height={320}

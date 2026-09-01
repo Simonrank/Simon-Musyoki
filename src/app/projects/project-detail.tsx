@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Calendar } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { EnrichedProject } from "./lib/enrich";
 import AnimatedStat from "./animated-stat";
@@ -99,10 +100,10 @@ export default function ProjectDetail({ project }: { project: EnrichedProject })
               This is a private product. Book a walkthrough and I&apos;ll show the workflows,
               roles, and what it looks like in production.
             </p>
-            <a href="/#contact" className="btn btn-primary mt-4">
+            <Link href="/#contact" className="btn btn-primary mt-4">
               <Calendar className="h-4 w-4" />
               Book a demo
-            </a>
+            </Link>
           </div>
         ) : project.liveDemoUrl ? (
           <iframe

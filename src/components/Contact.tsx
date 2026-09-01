@@ -51,6 +51,18 @@ export default function Contact() {
     setError("");
     setViaMailto(false);
 
+    const mailto = `mailto:${siteConfig.email}?${new URLSearchParams({
+      subject: `Portfolio: ${form.subject}`,
+      body: `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
+    }).toString()}`;
+
+    const openMail = () => {
+      window.location.href = mailto;
+      setViaMailto(true);
+      setStatus("sent");
+      setForm(initial);
+    };
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -72,18 +84,14 @@ export default function Contact() {
       }
 
       if (!response.ok || !result.ok) {
-        throw new Error(result.error || "Message could not be sent.");
+        openMail();
+        return;
       }
 
       setStatus("sent");
       setForm(initial);
-    } catch (err) {
-      setStatus("error");
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Message could not be sent. Please email me directly.",
-      );
+    } catch {
+      openMail();
     }
   }
 

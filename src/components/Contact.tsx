@@ -232,23 +232,6 @@ export default function Contact() {
               Download CV
             </button>
           </aside>
-
-          <aside className="contact-card p-6 sm:p-7">
-            <h3 className="text-sm font-bold tracking-wide text-foreground uppercase">
-              Working hours
-            </h3>
-            <div className="mt-3 h-px w-full" style={{ background: "var(--contact-line)" }} />
-            <dl className="mt-6 space-y-3 text-[0.98rem] text-foreground">
-              <div className="flex flex-wrap justify-between gap-x-4 gap-y-1">
-                <dt className="font-semibold">Monday – Friday</dt>
-                <dd>9:00 AM – 5:00 PM EAT</dd>
-              </div>
-              <div className="flex flex-wrap justify-between gap-x-4 gap-y-1">
-                <dt className="font-semibold">Saturday</dt>
-                <dd>By appointment</dd>
-              </div>
-            </dl>
-          </aside>
         </div>
       </div>
 

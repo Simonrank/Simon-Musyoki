@@ -151,6 +151,37 @@ body {
   outline-offset: 3px;
 }
 
+.practice-frame {
+  position: relative;
+  padding: 1.7rem 1.6rem 1.55rem 1.85rem;
+}
+
+.practice-frame::before,
+.practice-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 0.85rem;
+  pointer-events: none;
+}
+
+.practice-frame::before {
+  left: 0;
+  border-left: 5px solid var(--accent);
+  border-top: 5px solid var(--accent);
+  border-bottom: 5px solid var(--accent);
+  border-radius: 1.15rem 0 0 1.15rem;
+}
+
+.practice-frame::after {
+  right: 0;
+  border-right: 2px solid var(--accent);
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  border-radius: 0 1.15rem 1.15rem 0;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -170,6 +201,10 @@ body {
   background: var(--accent);
 }
 
+.eyebrow-plain::before {
+  display: none;
+}
+
 .section-title {
   margin-top: 0.45rem;
   font-family: var(--font-display), Georgia, serif;
@@ -178,6 +213,12 @@ body {
   letter-spacing: -0.03em;
   line-height: 1.15;
   color: var(--foreground);
+}
+
+.section-title-display {
+  margin-top: 0.7rem;
+  font-size: clamp(2.15rem, 4.8vw, 3.4rem);
+  font-weight: 600;
 }
 
 .section-lead {
@@ -241,6 +282,35 @@ button:focus-visible {
 
 .btn-ghost:hover {
   background: rgba(14, 122, 102, 0.16);
+}
+
+.btn-pill {
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--foreground);
+  border-color: #d8d2c8;
+  padding-inline: 1.4rem;
+  box-shadow: 0 8px 24px -18px rgba(26, 25, 22, 0.45);
+}
+
+.btn-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent-deep);
+}
+
+.project-shot {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 0 22px 50px -32px rgba(26, 25, 22, 0.4);
+}
+
+.project-shot img {
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a:hover .project-shot img {
+  transform: scale(1.045);
 }
 
 .rule {
@@ -359,5 +429,9 @@ button:focus-visible {
     justify-content: center;
     gap: 2.5rem 3.5rem;
     padding: 0 1.25rem;
+  }
+
+  a:hover .project-shot img {
+    transform: none;
   }
 }

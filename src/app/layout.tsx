@@ -27,6 +27,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   authors: [{ name: siteConfig.name }],
   keywords: [
+    "Software Developer",
     "Data Scientist",
     "AI Engineer",
     "Analytics Engineer",

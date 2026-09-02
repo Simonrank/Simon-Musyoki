@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/portfolio";
 import { enrichProjects } from "../lib/enrich";
-import ProjectDetailLoader from "../project-detail-loader";
+import ProjectDetail from "../project-detail";
 
 const enriched = enrichProjects(projects);
 
@@ -26,7 +26,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ProjectSlugPage({ params }: PageProps) {
   const { slug } = await params;
-  const project = enriched.find((item) => item.id === slug);
+  const index = enriched.findIndex((item) => item.id === slug);
+  const project = enriched[index];
   if (!project) notFound();
-  return <ProjectDetailLoader project={project} />;
+
+  return (
+    <ProjectDetail
+      project={project}
+      previous={index > 0 ? enriched[index - 1] : undefined}
+      next={index < enriched.length - 1 ? enriched[index + 1] : undefined}
+    />
+  );
 }

@@ -76,7 +76,7 @@ export default function Hero() {
           <div className="overflow-hidden border border-border bg-card shadow-[0_24px_60px_-28px_rgba(26,25,22,0.35)]">
             <Image
               src={publicPath("/images/user.jpeg")}
-              alt={`${siteConfig.name}, Data Scientist`}
+              alt={`${siteConfig.name}, ${siteConfig.role}`}
               width={720}
               height={900}
               priority

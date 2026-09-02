@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "Simon Musyoki",
-  title: "Simon Musyoki — Data Scientist",
+  title: "Simon Musyoki — Software Developer | Data Scientist",
   description:
-    "Data Scientist at Controltech Limited designing and deploying production-grade AI, analytics, and fleet intelligence systems across East Africa.",
-  role: "Data Scientist",
-  heroRoles: "Data Scientist",
+    "Software Developer | Data Scientist at Controltech Limited designing and deploying production-grade AI, analytics, and fleet intelligence systems across East Africa.",
+  role: "Software Developer | Data Scientist",
+  heroRoles: "Software Developer | Data Scientist",
   tagline: "I turn operational noise into systems leadership can run.",
   headline:
     "Building production-grade AI, analytics, and intelligent decision-support systems that transform complex data into measurable business value.",
@@ -19,7 +19,7 @@ export const siteConfig = {
     whatsapp: "https://wa.me/254792162750",
   },
   employer: {
-    title: "Data Scientist",
+    title: "Software Developer | Data Scientist",
     company: "Controltech Limited",
     blurb:
       "Leading provider of Telematics & Fleet Management solutions in Kenya and East Africa",
@@ -29,7 +29,7 @@ export const siteConfig = {
 export const heroMetrics = [
   {
     label: "Current Role",
-    value: "Data Scientist",
+    value: "Software Developer | Data Scientist",
     detail: "Controltech Limited",
   },
   {
@@ -55,7 +55,7 @@ export const about = {
   label: "About",
   title: "About Me",
   paragraphs: [
-    "I'm a **Data Scientist** at Controltech Limited. I build production systems that turn telematics, operations, and business data into decisions people can run.",
+    "I'm a **Software Developer | Data Scientist** at Controltech Limited. I build production systems that turn telematics, operations, and business data into decisions people can run.",
     "The work spans **fleet intelligence, RAG assistants, and operational products** — Next.js, Python, SQL, and the data layer underneath. I ship the dashboard, the pipeline, and the access model, not just the notebook.",
     "If it doesn't change what an operator, manager, or finance lead does on Monday, it isn't finished.",
   ],
@@ -64,71 +64,92 @@ export const about = {
 
 export const experience = [
   {
-    title: "Data Scientist",
+    title: "Software Developer | Data Scientist",
     company: "Controltech Limited",
     period: "Present",
-    location: "Kenya & East Africa",
+    location: "Kenya",
     current: true,
-    summary:
-      "I design and ship production analytics and AI systems for telematics and fleet operations — from ingest and models to the portals controllers, support, and leadership actually run.",
+    summary: "",
     highlights: [
-      "Fleet intelligence for 400+ tracked units: utilization, fuel, exceptions, and analysis windows in one operational picture.",
-      "Internal RAG helpdesk over ERP SOPs so staff get grounded, step-by-step answers instead of interrupting managers.",
-      "Role-aware portals and audit-friendly reporting so operations stop reconciling spreadsheets against vendor consoles.",
-      "Production ownership end to end: auth, RBAC, sync pipelines, migrations, and reliable Vercel releases.",
+      "Architect and develop enterprise Fleet Intelligence solutions that integrate Wialon telematics APIs with web-based applications, delivering customized platforms for real-time monitoring, analytics, reporting, and operational decision-making.",
+      "Engineer data-driven fleet analytics and Business Intelligence solutions that process large volumes of telematics data to uncover insights into fuel consumption, driver performance, vehicle utilization, route compliance, maintenance, and overall fleet efficiency.",
+      "Design and implement scalable API ecosystems and system integrations connecting telematics platforms with ERP systems, enterprise applications, cloud databases, and third-party services to automate data flows and business processes.",
+      "Develop and expose secure APIs for external clients, supporting the integration of telematics and operational data into customer ERP and business systems, while providing technical guidance on API consumption and integration.",
+      "Develop AI-powered business solutions using modern AI and data engineering techniques, including a Retrieval-Augmented Generation (RAG) Helpdesk Assistant that enables employees to access internal SOPs and organizational knowledge through natural-language interaction.",
+      "Translate complex business requirements into production-ready technology solutions, collaborating with clients and internal stakeholders from requirements gathering and development through testing, deployment, training, and ongoing technical support.",
+      "Build interactive executive and operational dashboards that transform complex datasets into intuitive visualizations, enabling management teams to monitor KPIs, identify operational risks, and make data-driven decisions.",
+      "Deploy and maintain solutions across development and production environments, ensuring reliability, accessibility, performance, and alignment with business and client requirements.",
     ],
-    focus: ["Python", "SQL", "Next.js", "Wialon API", "RAG", "PostgreSQL"],
   },
   {
-    title: "Data Analyst Intern",
+    title: "Data Analyst Intern | Monitoring, Evaluation & Reporting",
     company: "Salama Youth Hub",
-    period: "Oct 2024 – Present",
+    period: "October 2024 – January 2026",
     location: "Kenya",
     current: false,
     summary:
-      "Dashboards and quality-systems support for youth and standards-aligned programs.",
+      "Monitoring, evaluation, and reporting for youth programs — beneficiary data to leadership decisions.",
     highlights: [
-      "Power BI and Tableau dashboards that cut reporting time by 25%.",
-      "NQI Integrated Management Systems coordination at 100% standards compliance.",
+      "Analyze beneficiary and program data to evaluate program effectiveness, identify trends, and highlight areas for improvement.",
+      "Develop monthly analytical reports and performance insights that support program strategy, improve service delivery, and strengthen stakeholder engagement.",
+      "Track and monitor key program performance indicators, presenting data-driven findings and recommendations to the leadership team.",
+      "Facilitate weekly support groups and open discussions, contributing to a 30% increase in youth participation across programs.",
+      "Support the preparation of grant applications and funding proposals by providing relevant data, program insights, and supporting documentation.",
     ],
   },
   {
     title: "Survey Analyst",
     company: "Reuben Centre",
-    period: "Sep 2024",
+    period: "September 2024",
     location: "Kenya",
     current: false,
     summary:
       "Research engagement that informed organizational rebranding and program strategy.",
     highlights: [
-      "Led a 300+ participant survey; analysis briefed leadership and shaped strategy.",
-      "Designed survey instruments aligned to the Centre's actual decision questions.",
+      "Led a 300+ participant survey to support the Centre's rebranding initiative, gathering insights into its strengths, public perception, and areas requiring improvement.",
+      "Designed survey instruments around key organizational and strategic questions, ensuring the research generated actionable information for decision-making.",
+      "Analyzed the collected survey data to identify key trends, patterns, strengths, and improvement areas across the Centre's services and brand perception.",
+      "Translated research findings into actionable insights and recommendations, helping leadership understand stakeholder perceptions and inform the rebranding strategy.",
+      "Presented an analytical brief to leadership, communicating key findings in a clear and practical manner to support strategic planning.",
     ],
   },
   {
     title: "Enumerator",
     company: "Ministry of Labour and Social Protection",
-    period: "Oct 2024",
+    period: "October 2024",
     location: "Kenya",
     current: false,
     summary:
-      "Field collection for welfare and social protection programs — completeness first.",
+      "Household surveys and field data collection for welfare and social protection programs.",
     highlights: [
-      "Household surveys with 100% completeness on assigned welfare caseloads.",
-      "Reduced survey errors by 15% through clearer field communication.",
+      "Conducted household surveys and field data collection, achieving 100% completeness across assigned welfare caseloads.",
+      "Applied structured interviewing and verification techniques to ensure accurate, reliable, and consistent data collection.",
+      "Reduced survey errors by 15% through clear communication, respondent verification, and improved field data-quality practices.",
+      "Reviewed and validated collected information to identify missing, inconsistent, or inaccurate responses before submission.",
+      "Collaborated with field teams and supervisors to resolve data-quality issues and meet survey timelines.",
     ],
   },
   {
-    title: "Attachment — NQI Department",
-    company: "Kenya Bureau of Standards",
+    title: "National Quality Institute — Attachee",
+    company: "Kenya Bureau of Standards (KEBS)",
     period: "Apr – Jul 2024",
     location: "Kenya",
     current: false,
     summary:
-      "Program analytics and reporting inside the National Quality Institute.",
+      "Data analysis, quality assurance, and operations support inside the National Quality Institute.",
     highlights: [
-      "Monthly analytical reports that informed program strategy and delivery.",
-      "Tracked KPIs and briefed leadership; youth program participation up 30%.",
+      "Analyzed quality and operational data to identify key trends, patterns, and insights that supported informed decision-making within the National Quality Institute.",
+      "Supported Integrated Management Systems (IMS) coordination, contributing to the monitoring and achievement of 100% standards compliance across required processes and activities.",
+      "Contributed to quality assurance activities by verifying that required standards, specifications, and deliverables were met and that what was provided aligned with established requirements.",
+      "Coordinated logistics and operational activities for NQI programs, training, meetings, and other institutional activities, ensuring smooth execution and timely delivery.",
+      "Supported research and quality improvement initiatives by organizing information, analyzing findings, and contributing to efforts aimed at strengthening the practical application of standards and quality practices.",
+    ],
+    focus: [
+      "Data Analysis",
+      "Quality Assurance",
+      "Standards Compliance",
+      "Research",
+      "Operations",
     ],
   },
 ] as const;
@@ -170,6 +191,7 @@ export type Project = {
   stack: string[];
   outcome: string;
   image?: string;
+  gallery?: string[];
   challengeCategory?: ChallengeCategory;
   metrics?: { label: string; value: string }[];
   hardestBug?: string;
@@ -223,8 +245,37 @@ export const projects: Project[] = [
       "Fleet managers move from raw tracking data to a clear operational picture — what is happening across the fleet, where exceptions sit, and what to act on next.",
   },
   {
+    id: "yakwetu-pricing",
+    title: "Yakwetu — Climate-based variable pricing",
+    subtitle: "Price content to weather-driven demand, not a flat rate",
+    org: "Completed collaboration · live dashboard",
+    tag: "Demand & pricing",
+    image: "/images/projects/yakwetu-dashboard.png",
+    gallery: ["/images/projects/yakwetu-forecast.png"],
+    problem:
+      "A content platform charged the same price on a quiet weekday as on a rainy weekend. Viewing moves with weather. A flat price leaves revenue on the table in peaks and does nothing to fill the troughs.",
+    solution:
+      "In a completed collaboration we joined viewing and transaction history with daily weather, predicted high vs low demand, and shipped a live pricing dashboard. It pulls current climate for a city, classifies demand, and recommends a ticket price for the next seven days — lift it when demand is high, ease it when it is not.",
+    impact: [
+      "Live dashboard: weather, demand class, confidence, and recommended price",
+      "7-day forecast a commercial team can plan against",
+      "11.5% revenue lift versus fixed pricing in the pricing simulation",
+    ],
+    features: [
+      "Demand classification so prices move with expected viewing",
+      "7-day table of weather, demand, price, and model confidence",
+      "Live climate feed — the recommendation is current, not a static notebook",
+    ],
+    stack: ["Python", "XGBoost", "Prophet", "SQL", "Open-Meteo", "pandas"],
+    outcome:
+      "A finished, live product: today's weather, a demand call, and a price. The simulation behind it showed an 11.5% revenue lift versus a flat ticket.",
+    liveDemoUrl: "https://yakwetu-weather-dynamic-project.vercel.app/",
+    githubUrl: "https://github.com/joyaran/Yakwetu_project",
+  },
+  {
     id: "erp-ai-helpdesk",
     title: "Enterprise AI Knowledge Assistant",
+    subtitle: "SOP-grounded answers without interrupting managers",
     org: "Internal product · RAG",
     tag: "Enterprise AI",
     problem:
@@ -291,8 +342,10 @@ export const projects: Project[] = [
   {
     id: "libranest",
     title: "Library Management Platform",
+    subtitle: "Catalog, circulation, and fines in one operations product",
     org: "Independent product",
     tag: "Operations Platform",
+    image: "/images/projects/libranest-dashboard.png",
     problem:
       "Libraries still rely on manual registers and spreadsheets for cataloging, circulation, fines, and reporting — losing stock visibility and slowing front-desk operations.",
     solution:

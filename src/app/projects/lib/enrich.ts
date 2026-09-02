@@ -75,6 +75,53 @@ const extrasById: Partial<Record<string, Partial<EnrichedProject>>> = {
       "Next.js dashboard over Wialon REST telemetry. Python/SQL transforms produce utilization, fuel, and incident aggregates. Role-aware views for ops, support, and admin. Optional ERP join for a single operational picture.",
     githubUrl: siteConfig.social.github,
   },
+  "yakwetu-pricing": {
+    challengeCategory: "Performance",
+    metrics: [
+      { label: "Simulated revenue lift", value: "+11.5%" },
+      { label: "Demand accuracy", value: "77.9%" },
+      { label: "Forecast window", value: "7 days" },
+      { label: "High-demand price", value: "+20%" },
+    ],
+    hardestBug:
+      "The first demand model looked almost perfect until we found leakage — engagement metrics that only exist after someone has already watched. A pricing engine cannot use that. We rebuilt on forecastable features only: weather, calendar, and lagged demand. Accuracy dropped, then reached 77.9% on a model a commercial team could actually trust.",
+    architectureDiagram: `flowchart LR
+  V[Views + transactions] --> J[Daily join]
+  W[Weather] --> J
+  J --> M[Demand model]
+  M --> P[Price recommendation]
+  P --> D[7-day dashboard]`,
+    retrospectiveSteps: [
+      {
+        day: 1,
+        title: "Price the demand, not the weather story",
+        description:
+          "The question was commercial: when should the ticket move. Weather was an input, not the product.",
+      },
+      {
+        day: 2,
+        title: "Kill the leaked model",
+        description:
+          "Post-watch metrics made accuracy look perfect and made the price unusable. Forecastable features only.",
+      },
+      {
+        day: 3,
+        title: "Turn prediction into a rule",
+        description:
+          "+20% on high demand, -10% on low, with weather and weekend weight. Something a pricing meeting can debate.",
+      },
+      {
+        day: 4,
+        title: "Put it on a desk",
+        description:
+          "Live climate, 7-day demand class, and recommended price — not a notebook a commercial lead will not open.",
+      },
+    ],
+    descriptionTech:
+      "Shipped demand and pricing product: platform usage joined to Open-Meteo climate, XGBoost demand class, Prophet trend, hybrid forecast, and a live 7-day price dashboard.",
+    liveDemoUrl: "https://yakwetu-weather-dynamic-project.vercel.app/",
+    githubUrl: "https://github.com/joyaran/Yakwetu_project",
+  },
   "erp-ai-helpdesk": {
     challengeCategory: "Architecture",
     metrics: [

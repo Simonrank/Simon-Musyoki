@@ -56,9 +56,6 @@ export default function Experience() {
                   {role.focus.join("  ·  ")}
                 </p>
               ) : null}
-              {role.current && role.summary ? (
-                <p className="mt-4 max-w-2xl text-[0.98rem] leading-7 text-muted">{role.summary}</p>
-              ) : null}
               <ul className="mt-4 max-w-2xl space-y-1.5">
                 {role.highlights.map((item) => (
                   <li key={item} className="text-sm leading-7 text-foreground">

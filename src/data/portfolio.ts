@@ -69,7 +69,6 @@ export const experience = [
     period: "Present",
     location: "Kenya",
     current: true,
-    summary: "",
     highlights: [
       "Architect and develop enterprise Fleet Intelligence solutions that integrate Wialon telematics APIs with web-based applications, delivering customized platforms for real-time monitoring, analytics, reporting, and operational decision-making.",
       "Engineer data-driven fleet analytics and Business Intelligence solutions that process large volumes of telematics data to uncover insights into fuel consumption, driver performance, vehicle utilization, route compliance, maintenance, and overall fleet efficiency.",

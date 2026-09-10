@@ -5,13 +5,12 @@ type SectionHeadingProps = {
   title: string;
   accentWord?: string;
   lead?: string;
-  align?: "left" | "center";
+  /** Right-aligned slot on desktop — a link or button that belongs to the section. */
+  action?: ReactNode;
 };
 
 function TitleWithAccent({ title, accentWord }: { title: string; accentWord?: string }) {
-  if (!accentWord || !title.includes(accentWord)) {
-    return title;
-  }
+  if (!accentWord || !title.includes(accentWord)) return title;
 
   const index = title.lastIndexOf(accentWord);
 
@@ -29,19 +28,18 @@ export function SectionHeading({
   title,
   accentWord,
   lead,
-  align = "left",
+  action,
 }: SectionHeadingProps) {
-  const centered = align === "center";
-
   return (
-    <div className={centered ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
-      <p className={`eyebrow ${centered ? "eyebrow-plain justify-center" : ""}`}>{eyebrow}</p>
-      <h2 className={`section-title ${centered ? "section-title-display" : ""}`}>
-        <TitleWithAccent title={title} accentWord={accentWord} />
-      </h2>
-      {lead ? (
-        <p className={`section-lead ${centered ? "mx-auto" : ""}`}>{lead}</p>
-      ) : null}
+    <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+      <div className="max-w-2xl">
+        <p className="eyebrow">{eyebrow}</p>
+        <h2 className="section-title">
+          <TitleWithAccent title={title} accentWord={accentWord} />
+        </h2>
+        {lead ? <p className="section-lead">{lead}</p> : null}
+      </div>
+      {action ? <div className="shrink-0 sm:pb-1">{action}</div> : null}
     </div>
   );
 }
@@ -50,13 +48,18 @@ export function SectionShell({
   id,
   children,
   className = "",
+  bordered = true,
 }: {
   id: string;
   children: ReactNode;
   className?: string;
+  bordered?: boolean;
 }) {
   return (
-    <section id={id} className={`section border-t border-border ${className}`}>
+    <section
+      id={id}
+      className={`section ${bordered ? "border-t border-border" : ""} ${className}`}
+    >
       <div className="container-site">{children}</div>
     </section>
   );

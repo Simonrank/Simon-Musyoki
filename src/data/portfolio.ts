@@ -28,19 +28,19 @@ export const siteConfig = {
 
 export const heroMetrics = [
   {
-    label: "Current Role",
-    value: "Software Developer | Data Scientist",
-    detail: "Controltech Limited",
+    label: "Now",
+    value: "Controltech",
+    detail: "Nairobi, Kenya",
   },
   {
-    label: "Enterprise Solutions",
-    value: "4+",
-    detail: "Production systems",
+    label: "Focus",
+    value: "Fleet · AI",
+    detail: "Operations products",
   },
   {
-    label: "Industries",
-    value: "Fleet · AI · HR",
-    detail: "Analytics & operations",
+    label: "Work",
+    value: "Production",
+    detail: "Dashboards & APIs",
   },
 ] as const;
 
@@ -277,6 +277,7 @@ export const projects: Project[] = [
     subtitle: "SOP-grounded answers without interrupting managers",
     org: "Internal product · RAG",
     tag: "Enterprise AI",
+    image: "/images/projects/erp-ai-helpdesk.jpg",
     problem:
       "Staff across multiple countries were hunting through SOPs or interrupting managers for routine ERP process questions — creating delays and inconsistent guidance.",
     solution:
@@ -336,6 +337,37 @@ export const projects: Project[] = [
     ],
     outcome:
       "One secure HR/payroll system that replaces informal people-process tooling with auditable workflows.",
+    bookDemo: true,
+  },
+  {
+    id: "school-campus-platform",
+    title: "School — Multi-Tenant Campus Platform",
+    subtitle:
+      "A SaaS foundation for running a school: one operator, many campuses, strict access control.",
+    org: "Independent product · sole full-stack engineer",
+    tag: "Multi-tenant SaaS",
+    image: "/images/projects/school-campus-dashboard.png",
+    problem:
+      "Schools need software that respects real org charts (admin vs teacher) and real tenancy (School A must never see School B). Most starter apps ignore both.",
+    solution:
+      "A web platform for school operators and campus staff, split into a public site, a platform console, and a school app. Tenancy is enforced with schoolId on every campus record and membership-based login. Permission keys live in code; role templates live in the database, so each school runs the same security model. Mutations stay on the server — server actions to a domain layer to MongoDB — instead of a scattered API. Teacher queries are scoped to homeroom and taught subjects, not a blunt role check.",
+    impact: [
+      "The operator creates schools, manages plans, and can step into a campus to help",
+      "Each school gets its own users, roles, students, staff, and academic structure",
+      "Teachers land in a narrower workspace: only their classes and students",
+      "School A cannot see School B",
+    ],
+    features: [
+      "Three surfaces: public site, platform console, and school app",
+      "Platform: schools, billing-plan metadata, settings, shadow mode",
+      "School: setup, students, guardians, staff, classes/streams, subjects, years, terms, grades, progress notes, invites, roles",
+      "Auth: email/password, JWT sessions, invitation links",
+      "schoolId on every campus record, with membership-based login",
+      "Permission keys in code and role templates in the database",
+    ],
+    stack: ["Next.js", "Server Actions", "MongoDB", "JWT"],
+    outcome:
+      "A working SaaS foundation: one operator, many campuses, and access control that matches how a school actually runs.",
     bookDemo: true,
   },
   {

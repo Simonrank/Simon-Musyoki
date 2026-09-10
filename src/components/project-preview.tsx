@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard, { type ProjectCardProps } from "@/components/ProjectCard";
 
 const FEATURED_IDS = [
   "fleet-intelligence",
@@ -10,41 +10,38 @@ const FEATURED_IDS = [
   "rank-solutions",
 ] as const;
 
-export type PreviewProject = {
-  id: string;
-  title: string;
-  subtitle?: string;
-  tag: string;
-  image?: string;
-};
+export type PreviewProject = Omit<ProjectCardProps, "index" | "reveal">;
 
 export default function ProjectPreview({ items }: { items: PreviewProject[] }) {
   const [open, setOpen] = useState(false);
+
   const featured = FEATURED_IDS.map((id) => items.find((item) => item.id === id)).filter(
     (item): item is PreviewProject => Boolean(item),
   );
   const rest = items.filter(
     (item) => !FEATURED_IDS.includes(item.id as (typeof FEATURED_IDS)[number]),
   );
-  const visible = open ? [...featured, ...rest] : featured;
 
   return (
     <>
-      <ul className="mt-12 grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:grid-cols-3">
-        {visible.map((project) => (
-          <ProjectCard
-            key={project.id}
-            id={project.id}
-            title={project.title}
-            subtitle={project.subtitle}
-            tag={project.tag}
-            image={project.image}
-          />
+      <ul className="mt-10 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {featured.map((project, index) => (
+          <ProjectCard key={project.id} index={index} {...project} />
         ))}
+        {open
+          ? rest.map((project, index) => (
+              <ProjectCard
+                key={project.id}
+                {...project}
+                index={featured.length + index}
+                reveal={false}
+              />
+            ))
+          : null}
       </ul>
 
       {rest.length > 0 ? (
-        <div className="mt-14 flex justify-center">
+        <div className="mt-12 flex justify-center">
           <button
             type="button"
             className="btn btn-pill"
@@ -58,7 +55,7 @@ export default function ProjectPreview({ items }: { items: PreviewProject[] }) {
               </>
             ) : (
               <>
-                See more
+                {`See ${rest.length} more`}
                 <ChevronDown className="h-4 w-4" />
               </>
             )}

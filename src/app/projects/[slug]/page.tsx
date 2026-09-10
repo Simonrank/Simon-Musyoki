@@ -17,10 +17,20 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = enriched.find((item) => item.id === slug);
-  if (!project) return { title: "Project — Simon Musyoki" };
+  if (!project) return { title: "Case study" };
+
+  const description = project.subtitle ?? project.outcome;
+
   return {
-    title: `${project.title} — Simon Musyoki`,
-    description: project.subtitle ?? project.outcome,
+    title: project.title,
+    description,
+    alternates: { canonical: `/projects/${project.id}` },
+    openGraph: {
+      title: project.title,
+      description,
+      type: "article",
+      ...(project.image ? { images: [{ url: project.image, alt: project.title }] } : {}),
+    },
   };
 }
 

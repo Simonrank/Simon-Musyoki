@@ -217,6 +217,52 @@ const extrasById: Partial<Record<string, Partial<EnrichedProject>>> = {
       "Multi-tenant HR/payroll on Next.js, Auth.js, Drizzle, and PostgreSQL. Tenant isolation, position-aware RBAC, leave/attendance/advance workflows, and password-protected payslip retrieval with audit metadata.",
     githubUrl: siteConfig.social.github,
   },
+  "school-campus-platform": {
+    challengeCategory: "Architecture",
+    metrics: [
+      { label: "Surfaces", value: "3" },
+      { label: "Tenancy", value: "Isolated" },
+      { label: "Auth", value: "JWT" },
+      { label: "Mutations", value: "Server" },
+    ],
+    hardestBug:
+      "A campus admin can see the school; a teacher cannot. Treating access as `if role === teacher` would have shown the whole campus. Queries had to be scoped to homeroom and taught subjects so a teacher never inherits records they should not see.",
+    architectureDiagram: `flowchart TB
+  P[Public site] --> A[Auth / invites]
+  A --> PL[Platform console]
+  A --> S[School app]
+  PL --> M[(MongoDB + schoolId)]
+  S --> M`,
+    retrospectiveSteps: [
+      {
+        day: 1,
+        title: "Three products, one tenancy rule",
+        description:
+          "Public site, platform console, and school app. The operator creates schools; campus staff never cross a schoolId boundary.",
+      },
+      {
+        day: 2,
+        title: "Membership is the login",
+        description:
+          "schoolId on every campus record. You do not enter a school by guessing an ID — you belong to it.",
+      },
+      {
+        day: 3,
+        title: "Permissions in two places on purpose",
+        description:
+          "Keys in code, role templates in the database. Each school runs the same security model without copying policy into the UI.",
+      },
+      {
+        day: 4,
+        title: "Teachers see a smaller world",
+        description:
+          "Homeroom and taught subjects only. Server actions to a domain layer to MongoDB, so the browser never decides the query.",
+      },
+    ],
+    descriptionTech:
+      "Next.js server actions into a domain layer on MongoDB. JWT sessions, email/password, and invitation links. Tenancy via schoolId and membership. Permission keys in code; role templates in the database. Teacher queries scoped to homeroom and taught subjects.",
+    githubUrl: siteConfig.social.github,
+  },
   libranest: {
     challengeCategory: "UI/UX",
     metrics: [

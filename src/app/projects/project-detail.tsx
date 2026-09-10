@@ -1,9 +1,37 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Calendar } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Calendar } from "lucide-react";
 import type { EnrichedProject } from "./lib/enrich";
 import { publicPath } from "@/lib/public-path";
 import { siteConfig } from "@/data/portfolio";
+
+function Block({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="border-t border-border pt-8">
+      <h2 className="t-label">{label}</h2>
+      <div className="mt-4">{children}</div>
+    </section>
+  );
+}
+
+function Bullets({ items }: { items: readonly string[] }) {
+  return (
+    <ul className="mt-4 space-y-2.5">
+      {items.map((item) => (
+        <li key={item} className="relative pl-4 text-[0.9375rem] leading-7 text-muted">
+          <span className="absolute top-[0.85em] left-0 h-px w-2 bg-border-strong" aria-hidden />
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function ProjectDetail({
   project,
@@ -14,58 +42,73 @@ export default function ProjectDetail({
   previous?: EnrichedProject;
   next?: EnrichedProject;
 }) {
+  const hasLinks =
+    Boolean(project.liveDemoUrl) || project.githubUrl !== siteConfig.social.github;
+
   return (
-    <article className="container-site max-w-3xl py-12 lg:py-16">
-      <Link href="/projects" className="text-sm text-muted hover:text-foreground">
-        ← All projects
+    <article className="container-reading py-12 lg:py-16">
+      <Link
+        href="/projects"
+        className="group inline-flex items-center gap-1.5 font-mono text-[0.7rem] tracking-[0.12em] text-muted uppercase transition-colors hover:text-accent-deep"
+      >
+        <ArrowLeft className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-x-0.5" />
+        All projects
       </Link>
 
-      <h1 className="mt-6 font-display text-[clamp(1.9rem,4vw,2.8rem)] font-medium leading-tight tracking-tight text-foreground">
-        {project.title}
-      </h1>
-      {project.subtitle ? (
-        <p className="mt-3 text-lg leading-8 text-muted">{project.subtitle}</p>
-      ) : null}
-      <p className="mt-2 text-sm text-muted">{project.org}</p>
+      <header className="mt-8">
+        <p className="t-label text-accent">{project.tag}</p>
+        <h1 className="t-h1 mt-4 text-foreground">{project.title}</h1>
+        {project.subtitle ? (
+          <p className="mt-4 font-display text-xl leading-[1.45] tracking-tight text-muted italic">
+            {project.subtitle}
+          </p>
+        ) : null}
+        <p className="t-meta mt-4 text-faint">{project.org}</p>
 
-      <p className="mt-5 text-sm leading-7 text-muted">
-        {project.stack.join(" · ")}
-      </p>
+        <ul className="mt-6 flex flex-wrap gap-1.5">
+          {project.stack.map((item) => (
+            <li key={item} className="chip">
+              {item}
+            </li>
+          ))}
+        </ul>
 
-      {project.liveDemoUrl || project.githubUrl !== siteConfig.social.github ? (
-        <p className="mt-4 flex flex-wrap gap-4 text-sm">
-          {project.liveDemoUrl ? (
-            <a
-              href={project.liveDemoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-semibold text-accent hover:text-accent-deep"
-            >
-              Live dashboard
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
-          ) : null}
-          {project.githubUrl && project.githubUrl !== siteConfig.social.github ? (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-muted hover:text-foreground"
-            >
-              Repository
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
-          ) : null}
-        </p>
-      ) : null}
+        {hasLinks ? (
+          <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+            {project.liveDemoUrl ? (
+              <a
+                href={project.liveDemoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-deep"
+              >
+                Live dashboard
+                <ArrowUpRight className="nudge h-3.5 w-3.5" />
+              </a>
+            ) : null}
+            {project.githubUrl && project.githubUrl !== siteConfig.social.github ? (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
+              >
+                Repository
+                <ArrowUpRight className="nudge h-3.5 w-3.5" />
+              </a>
+            ) : null}
+          </p>
+        ) : null}
+      </header>
 
       {project.image ? (
-        <div className="mt-8 overflow-hidden border border-border bg-card">
+        <div className="project-shot mt-10">
           <Image
             src={publicPath(project.image)}
-            alt={`${project.title} product screenshot`}
+            alt={`${project.title} — product interface`}
             width={1600}
             height={900}
+            sizes="(max-width: 768px) 92vw, 46rem"
             className="h-auto w-full object-cover object-top"
             priority
           />
@@ -73,91 +116,77 @@ export default function ProjectDetail({
       ) : null}
 
       {project.gallery?.map((src) => (
-        <div key={src} className="mt-4 overflow-hidden border border-border bg-card">
+        <div key={src} className="project-shot mt-4">
           <Image
             src={publicPath(src)}
-            alt=""
+            alt={`${project.title} — supporting view`}
             width={1600}
             height={900}
+            sizes="(max-width: 768px) 92vw, 46rem"
             className="h-auto w-full object-cover object-top"
           />
         </div>
       ))}
 
-      <section className="mt-10 space-y-8">
-        <div>
-          <h2 className="text-sm font-semibold tracking-wide text-foreground uppercase">
-            The problem
-          </h2>
-          <p className="mt-3 text-[1.02rem] leading-8 text-muted">{project.problem}</p>
-        </div>
-        <div>
-          <h2 className="text-sm font-semibold tracking-wide text-foreground uppercase">
-            What shipped
-          </h2>
-          <p className="mt-3 text-[1.02rem] leading-8 text-muted">{project.solution}</p>
-          <ul className="mt-4 space-y-1.5">
-            {project.features.map((item) => (
-              <li key={item} className="text-sm leading-7 text-muted">
-                <span className="mr-2 text-muted">–</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-sm font-semibold tracking-wide text-foreground uppercase">
-            Outcome
-          </h2>
-          <p className="mt-3 text-[1.02rem] leading-8 text-muted">{project.outcome}</p>
-        </div>
-      </section>
-
       {project.metrics.length > 0 ? (
-        <dl className="mt-10 grid gap-6 border-t border-border pt-8 sm:grid-cols-2">
+        <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-y border-border py-6 sm:grid-cols-4">
           {project.metrics.map((metric) => (
-            <div key={metric.label}>
-              <dt className="text-xs font-semibold tracking-[0.12em] text-muted uppercase">
-                {metric.label}
-              </dt>
-              <dd className="mt-1 font-display text-2xl font-medium tracking-tight text-foreground">
-                {metric.value}
-              </dd>
+            <div key={metric.label} className="metric">
+              <dt>{metric.label}</dt>
+              <dd className="text-[1.125rem]">{metric.value}</dd>
             </div>
           ))}
         </dl>
       ) : null}
 
-      {project.hardestBug ? (
-        <section className="mt-10 border-t border-border pt-8">
-          <h2 className="text-sm font-semibold tracking-wide text-foreground uppercase">
-            What was hard
-          </h2>
-          <p className="mt-3 text-[1.02rem] leading-8 text-muted">{project.hardestBug}</p>
-        </section>
-      ) : null}
+      <div className="mt-12 space-y-10">
+        <Block label="Problem">
+          <p className="t-body text-[1.0625rem]">{project.problem}</p>
+        </Block>
 
-      {project.bookDemo ? (
-        <section className="mt-10 border-t border-border pt-8">
-          <h2 className="text-sm font-semibold tracking-wide text-foreground uppercase">
-            Book a demo
-          </h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            This is a private product. I can walk through the workflows, roles, and what it looks
-            like in production.
-          </p>
-          <Link href="/#contact" className="btn btn-primary mt-5">
-            <Calendar className="h-4 w-4" />
-            Book a demo
-          </Link>
-        </section>
-      ) : null}
+        <Block label="Approach">
+          <p className="t-body text-[1.0625rem]">{project.solution}</p>
+          <Bullets items={project.features} />
+        </Block>
 
-      <nav className="mt-14 flex items-start justify-between gap-6 border-t border-border pt-8 text-sm">
+        <Block label="Result">
+          <p className="t-body text-[1.0625rem]">{project.outcome}</p>
+          <Bullets items={project.impact} />
+        </Block>
+
+        {project.hardestBug ? (
+          <Block label="What was hard">
+            <p className="t-body text-[1.0625rem]">{project.hardestBug}</p>
+          </Block>
+        ) : null}
+
+        {project.bookDemo ? (
+          <Block label="Book a demo">
+            <p className="t-body">
+              This is a private product. I can walk through the workflows, roles, and what it
+              looks like in production.
+            </p>
+            <Link href="/#contact" className="btn btn-primary mt-5">
+              <Calendar className="h-4 w-4" />
+              Book a demo
+            </Link>
+          </Block>
+        ) : null}
+      </div>
+
+      <nav
+        aria-label="More projects"
+        className="mt-14 flex items-start justify-between gap-8 border-t border-border pt-8"
+      >
         {previous ? (
-          <Link href={`/projects/${previous.id}`} className="max-w-[45%] text-muted hover:text-foreground">
-            <span className="block text-xs tracking-wide uppercase">Previous</span>
-            <span className="mt-1 block font-semibold text-foreground">{previous.title}</span>
+          <Link
+            href={`/projects/${previous.id}`}
+            className="group max-w-[46%] transition-colors hover:text-foreground"
+          >
+            <span className="t-label">Previous</span>
+            <span className="mt-1.5 block text-[0.9375rem] font-medium text-foreground group-hover:text-accent-deep">
+              {previous.title}
+            </span>
           </Link>
         ) : (
           <span />
@@ -165,10 +194,12 @@ export default function ProjectDetail({
         {next ? (
           <Link
             href={`/projects/${next.id}`}
-            className="max-w-[45%] text-right text-muted hover:text-foreground"
+            className="group ml-auto max-w-[46%] text-right transition-colors hover:text-foreground"
           >
-            <span className="block text-xs tracking-wide uppercase">Next</span>
-            <span className="mt-1 block font-semibold text-foreground">{next.title}</span>
+            <span className="t-label">Next</span>
+            <span className="mt-1.5 block text-[0.9375rem] font-medium text-foreground group-hover:text-accent-deep">
+              {next.title}
+            </span>
           </Link>
         ) : null}
       </nav>

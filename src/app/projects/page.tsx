@@ -7,25 +7,29 @@ const items = enrichProjects(projects);
 export default function ProjectsIndexPage() {
   return (
     <div className="container-site py-12 lg:py-16">
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="eyebrow eyebrow-plain justify-center">Selected work</p>
+      <header className="max-w-2xl">
+        <p className="eyebrow">Selected work</p>
         <h1 className="section-title section-title-display">
-          Featured <span className="text-accent">projects</span>
+          Systems in <span className="text-accent">production</span>
         </h1>
-        <p className="section-lead mx-auto">
-          Open a case study for the problem, what shipped, and what was hard.
+        <p className="section-lead">
+          Fleet intelligence, demand pricing, enterprise AI, and internal operations products.
+          Each case study covers the problem, the approach, and what changed.
         </p>
-      </div>
+      </header>
 
-      <ul className="mt-12 grid gap-10 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12">
-        {items.map((project) => (
+      <ul className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((project, index) => (
           <ProjectCard
             key={project.id}
+            index={index}
             id={project.id}
             title={project.title}
             subtitle={project.subtitle}
             tag={project.tag}
             image={project.image}
+            metrics={project.metrics}
+            stack={project.stack}
           />
         ))}
       </ul>

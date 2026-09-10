@@ -13,12 +13,6 @@ const nextConfig: NextConfig = {
     : {}),
   images: {
     unoptimized: isGitHubPages,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "ghchart.rshah.org",
-      },
-    ],
   },
   env: {
     NEXT_PUBLIC_BASE_PATH: isGitHubPages ? "/Simon-Musyoki" : "",

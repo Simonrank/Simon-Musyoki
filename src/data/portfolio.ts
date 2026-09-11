@@ -7,7 +7,7 @@ export const siteConfig = {
   heroRoles: "Software Developer | Data Scientist",
   tagline: "I turn operational noise into systems leadership can run.",
   headline:
-    "Building production-grade AI, analytics, and intelligent decision-support systems that transform complex data into measurable business value.",
+    "I build intelligent software systems that connect data, APIs, and business operations. My work spans data science, automation, API integration, and full-stack web development—turning complex data from platforms such as Wialon, Howen, and MIX into reliable pipelines, actionable analytics, and purpose-built applications. From fleet intelligence and operational dashboards to AI-powered tools and business management systems, I focus on engineering solutions that automate repetitive work, simplify complex processes, and help organizations make better decisions.",
   email: "simonmusyoki2019@gmail.com",
   phone: "+254 792 162 750",
   location: "Nairobi, Kenya",
@@ -55,11 +55,12 @@ export const about = {
   label: "About",
   title: "About Me",
   paragraphs: [
-    "I'm a **Software Developer | Data Scientist** at Controltech Limited. I build production systems that turn telematics, operations, and business data into decisions people can run.",
-    "The work spans **fleet intelligence, RAG assistants, and operational products** — Next.js, Python, SQL, and the data layer underneath. I ship the dashboard, the pipeline, and the access model, not just the notebook.",
-    "If it doesn't change what an operator, manager, or finance lead does on Monday, it isn't finished.",
+    "I am a **Software Developer** and **Data Scientist** passionate about building intelligent systems that solve real-world problems. My work sits at the intersection of software engineering, data science, automation, and business intelligence, where I transform complex data and operational challenges into practical, scalable solutions.",
+    "I build modern web applications, engineer data pipelines, integrate third-party APIs, and develop automated workflows that connect systems and improve how information moves through an organization. My experience includes working with telematics and fleet platforms such as Wialon, Howen, and MIX, extracting and processing operational data to create custom applications, analytics platforms, and decision-support tools.",
+    "Beyond data analysis, I enjoy taking an idea from concept to a functional product—designing the architecture, developing the application, integrating the necessary services, and deploying a solution that people can actually use. I am particularly interested in AI-powered applications, intelligent automation, and software that turns data into measurable business value.",
   ],
-  tagline: "I build. I analyze. I automate. I solve problems.",
+  tagline:
+    "I believe technology should do more than display information. It should simplify processes, reduce repetitive work, reveal opportunities, and help people make better decisions.",
 } as const;
 
 export const experience = [

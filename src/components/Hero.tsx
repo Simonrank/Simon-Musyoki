@@ -9,7 +9,7 @@ import { publicPath } from "@/lib/public-path";
 import SignalPlot from "@/components/ui/SignalPlot";
 import Navbar from "./Navbar";
 
-const disciplines = ["Data Science", "Software Engineering", "Fleet Intelligence"];
+const disciplines = ["Data Scientist", "Data Analyst"];
 
 export default function Hero() {
   return (
@@ -41,10 +41,8 @@ export default function Hero() {
             {siteConfig.tagline}
           </p>
 
-          <p className="animate-rise-d2 t-body mt-5 max-w-xl">
-            {siteConfig.role} at {siteConfig.employer.company} in {siteConfig.location}. I build
-            the dashboards, pipelines, and APIs that put live operational data in front of the
-            people who have to act on it.
+          <p className="animate-rise-d2 t-body mt-5 max-w-2xl">
+            {siteConfig.headline}
           </p>
 
           <div className="animate-rise-d3 mt-8 flex flex-wrap items-center gap-3">

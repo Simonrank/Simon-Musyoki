@@ -13,13 +13,55 @@ function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-function mailtoHref(name: string, email: string, subject: string, message: string) {
-  const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-  const params = new URLSearchParams({
-    subject: `Portfolio: ${subject}`,
-    body,
+async function sendWithWeb3Forms(
+  accessKey: string,
+  name: string,
+  email: string,
+  subject: string,
+  message: string,
+) {
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: accessKey,
+      name,
+      email,
+      subject: `Portfolio: ${subject}`,
+      message,
+      from_name: siteConfig.name,
+    }),
   });
-  return `mailto:${siteConfig.email}?${params.toString()}`;
+
+  const result = (await response.json()) as { success?: boolean; message?: string };
+  if (!response.ok || !result.success) {
+    throw new Error(result.message || "The message could not be delivered.");
+  }
+}
+
+async function sendWithFormSubmit(
+  name: string,
+  email: string,
+  subject: string,
+  message: string,
+) {
+  const response = await fetch(`https://formsubmit.co/ajax/${siteConfig.email}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      name,
+      email,
+      _subject: `Portfolio: ${subject}`,
+      message,
+      _captcha: "false",
+      _template: "table",
+    }),
+  });
+
+  const result = (await response.json()) as { success?: string; message?: string };
+  if (!response.ok || result.success !== "true") {
+    throw new Error(result.message || "The message could not be delivered.");
+  }
 }
 
 export async function POST(request: Request) {
@@ -48,32 +90,12 @@ export async function POST(request: Request) {
     );
   }
 
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
-
-  if (!accessKey) {
-    return NextResponse.json({
-      ok: true,
-      mailto: mailtoHref(name, email, subject, message),
-    });
-  }
-
   try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        access_key: accessKey,
-        name,
-        email,
-        subject: `Portfolio: ${subject}`,
-        message,
-        from_name: siteConfig.name,
-      }),
-    });
-
-    const result = (await response.json()) as { success?: boolean; message?: string };
-    if (!response.ok || !result.success) {
-      throw new Error(result.message || "The message could not be delivered.");
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY?.trim();
+    if (accessKey) {
+      await sendWithWeb3Forms(accessKey, name, email, subject, message);
+    } else {
+      await sendWithFormSubmit(name, email, subject, message);
     }
 
     return NextResponse.json({ ok: true });
@@ -82,7 +104,6 @@ export async function POST(request: Request) {
       {
         ok: false,
         error: err instanceof Error ? err.message : "The message could not be delivered.",
-        mailto: mailtoHref(name, email, subject, message),
       },
       { status: 502 },
     );

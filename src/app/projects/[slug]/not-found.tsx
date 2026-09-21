@@ -5,7 +5,7 @@ export default function ProjectNotFound() {
   const first = projects[0];
 
   return (
-    <div className="container-reading py-16 lg:py-24">
+    <div className="container-site py-16 lg:py-24">
       <p className="t-label">Error 404</p>
       <h1 className="t-h1 mt-4 text-foreground">Case study not found</h1>
       <p className="t-body mt-4 max-w-md">

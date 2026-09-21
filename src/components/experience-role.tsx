@@ -3,7 +3,7 @@
 import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-const COLLAPSED = 3;
+const COLLAPSED = 2;
 
 export default function RoleHighlights({ highlights }: { highlights: readonly string[] }) {
   const [open, setOpen] = useState(false);
@@ -13,9 +13,12 @@ export default function RoleHighlights({ highlights }: { highlights: readonly st
 
   return (
     <>
-      <ul id={listId} className="mt-4 max-w-2xl space-y-2.5">
+      <ul
+        id={listId}
+        className={`mt-4 space-y-2.5 ${open ? "lg:grid lg:grid-cols-2 lg:gap-x-12 lg:space-y-0 lg:gap-y-3" : "max-w-3xl"}`}
+      >
         {visible.map((item) => (
-          <li key={item} className="relative pl-4 text-[0.9375rem] leading-7 text-muted">
+          <li key={item} className="relative pl-4 text-[0.9375rem] leading-6 text-muted">
             <span
               className="absolute top-[0.85em] left-0 h-px w-2 bg-border-strong"
               aria-hidden

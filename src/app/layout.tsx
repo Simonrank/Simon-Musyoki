@@ -41,7 +41,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   keywords: [
     "Simon Musyoki",
-    "Software Developer",
     "Data Scientist",
     "Fleet Intelligence",
     "Telematics Analytics",
@@ -74,8 +73,6 @@ const personSchema = {
   jobTitle: siteConfig.role,
   description: siteConfig.description,
   url: siteUrl,
-  email: `mailto:${siteConfig.email}`,
-  telephone: siteConfig.phone,
   address: { "@type": "PostalAddress", addressLocality: "Nairobi", addressCountry: "KE" },
   worksFor: { "@type": "Organization", name: siteConfig.employer.company },
   sameAs: [siteConfig.social.linkedin, siteConfig.social.github],

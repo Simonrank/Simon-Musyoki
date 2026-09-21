@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { navLinks, siteConfig } from "@/data/portfolio";
+import { navLinks } from "@/data/portfolio";
 
 const menuLinks = navLinks.filter((link) => link.href !== "/#contact");
 
@@ -97,13 +97,6 @@ export default function Navbar() {
             <Link href="/#contact" onClick={() => setOpen(false)} className="btn btn-primary">
               Get in touch
             </Link>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="t-meta break-all text-muted"
-              onClick={() => setOpen(false)}
-            >
-              {siteConfig.email}
-            </a>
           </div>
         </nav>
       </div>

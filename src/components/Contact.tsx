@@ -4,6 +4,7 @@ import { Download, Send } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import { siteConfig } from "@/data/portfolio";
 import { downloadCV } from "@/lib/download-cv";
+import { sendContactMessage } from "@/lib/send-contact";
 import { SectionHeading, SectionShell } from "@/components/ui/Section";
 
 type FormState = {
@@ -23,12 +24,6 @@ const initial: FormState = {
 };
 
 const channels = [
-  { label: "Email", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
-  {
-    label: "Phone",
-    value: siteConfig.phone,
-    href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
-  },
   { label: "WhatsApp", value: "Fastest response", href: siteConfig.social.whatsapp },
   { label: "LinkedIn", value: "simon-musyoki", href: siteConfig.social.linkedin },
   { label: "GitHub", value: "Simonrank", href: siteConfig.social.github },
@@ -38,55 +33,30 @@ export default function Contact() {
   const [form, setForm] = useState<FormState>(initial);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
-  const [viaMailto, setViaMailto] = useState(false);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("sending");
     setError("");
-    setViaMailto(false);
 
-    const mailto = `mailto:${siteConfig.email}?${new URLSearchParams({
-      subject: `Portfolio: ${form.subject}`,
-      body: `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
-    }).toString()}`;
-
-    const openMail = () => {
-      window.location.href = mailto;
-      setViaMailto(true);
+    if (form.company) {
       setStatus("sent");
       setForm(initial);
-    };
+      return;
+    }
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+      await sendContactMessage({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        subject: form.subject.trim(),
+        message: form.message.trim(),
       });
-      const result = (await response.json()) as {
-        ok?: boolean;
-        error?: string;
-        mailto?: string;
-      };
-
-      if (result.mailto) {
-        window.location.href = result.mailto;
-        setViaMailto(true);
-        setStatus("sent");
-        setForm(initial);
-        return;
-      }
-
-      if (!response.ok || !result.ok) {
-        openMail();
-        return;
-      }
-
       setStatus("sent");
       setForm(initial);
-    } catch {
-      openMail();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "The message could not be delivered.");
+      setStatus("error");
     }
   }
 
@@ -95,10 +65,10 @@ export default function Contact() {
       <SectionHeading
         eyebrow="Contact"
         title="If the work is a fit, write."
-        lead="Roles, collaborations, and product questions. I typically reply within one to two business days."
+        lead="Roles, collaborations, product questions. I typically reply within one to two days."
       />
 
-      <div className="mt-10 grid items-start gap-12 lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-16">
+      <div className="mt-10 grid items-start gap-12 lg:grid-cols-[minmax(0,1.35fr)_minmax(16rem,0.85fr)] xl:gap-24">
         <form onSubmit={onSubmit} noValidate={false} data-reveal>
           <div className="grid gap-5 sm:grid-cols-2">
             <label className="block">
@@ -187,18 +157,13 @@ export default function Contact() {
 
           {status === "sent" ? (
             <p className="mt-4 text-sm text-accent-deep" role="status">
-              {viaMailto
-                ? "Your email app should open with the message ready. Send it from there."
-                : "Message sent. I'll get back to you soon."}
+              Message sent. I'll get back to you soon.
             </p>
           ) : null}
 
           {status === "error" ? (
             <p className="mt-4 text-sm text-accent-deep" role="alert">
-              {error}{" "}
-              <a href={`mailto:${siteConfig.email}`} className="underline underline-offset-4">
-                {siteConfig.email}
-              </a>
+              {error}
             </p>
           ) : null}
         </form>

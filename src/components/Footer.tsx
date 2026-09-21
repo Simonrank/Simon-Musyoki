@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { siteConfig } from "@/data/portfolio";
+import { navLinks, siteConfig } from "@/data/portfolio";
 
-const links = [
+const social = [
   { label: "LinkedIn", href: siteConfig.social.linkedin, external: true },
   { label: "GitHub", href: siteConfig.social.github, external: true },
-  { label: "Email", href: `mailto:${siteConfig.email}`, external: false },
 ];
 
 export default function Footer() {
@@ -12,23 +11,34 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border">
-      <div className="container-site py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-md">
+      <div className="container-site py-12 lg:py-16">
+        <div className="grid gap-10 md:grid-cols-3 md:items-start">
+          <div>
             <Link href="/" className="font-display text-2xl tracking-tight text-foreground">
               Simon <span className="italic">Musyoki</span>
             </Link>
-            <p className="t-small mt-3">{siteConfig.tagline}</p>
+            <p className="t-small mt-3 max-w-sm">{siteConfig.tagline}</p>
           </div>
 
-          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
-            {links.map((link) => (
+          <ul className="flex flex-col gap-2 md:items-start">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="font-mono text-[0.7rem] tracking-[0.12em] text-muted uppercase underline-offset-4 transition-colors hover:text-accent-deep hover:underline"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <ul className="flex flex-col gap-2 md:items-end">
+            {social.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  {...(link.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
+                  {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="font-mono text-[0.7rem] tracking-[0.12em] text-muted uppercase underline-offset-4 transition-colors hover:text-accent-deep hover:underline"
                 >
                   {link.label}

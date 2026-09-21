@@ -1,15 +1,14 @@
 export const siteConfig = {
   name: "Simon Musyoki",
-  title: "Simon Musyoki — Software Developer | Data Scientist",
+  title: "Simon Musyoki — Data Scientist",
   description:
-    "Software Developer | Data Scientist at Controltech Limited designing and deploying production-grade AI, analytics, and fleet intelligence systems across East Africa.",
-  role: "Software Developer | Data Scientist",
-  heroRoles: "Software Developer | Data Scientist",
+    "Data Scientist at Controltech Limited designing and deploying production-grade AI, analytics, and fleet intelligence systems across East Africa.",
+  role: "Data Scientist",
+  heroRoles: "Data Scientist",
   tagline: "I turn operational noise into systems leadership can run.",
   headline:
-    "I build intelligent software systems that connect data, APIs, and business operations. My work spans data science, automation, API integration, and full-stack web development—turning complex data from platforms such as Wialon, Howen, and MIX into reliable pipelines, actionable analytics, and purpose-built applications. From fleet intelligence and operational dashboards to AI-powered tools and business management systems, I focus on engineering solutions that automate repetitive work, simplify complex processes, and help organizations make better decisions.",
+    "I built systems that connect telematics, APIs, and operations — then put the decision on a screen.",
   email: "simonmusyoki2019@gmail.com",
-  phone: "+254 792 162 750",
   location: "Nairobi, Kenya",
   cvPath: "/images/Simon.pdf",
   cvFileName: "Simon_Musyoki_Data_Scientist_CV.pdf",
@@ -19,7 +18,7 @@ export const siteConfig = {
     whatsapp: "https://wa.me/254792162750",
   },
   employer: {
-    title: "Software Developer | Data Scientist",
+    title: "Data Scientist",
     company: "Controltech Limited",
     blurb:
       "Leading provider of Telematics & Fleet Management solutions in Kenya and East Africa",
@@ -46,7 +45,7 @@ export const heroMetrics = [
 
 export const navLinks = [
   { href: "/#about", label: "About" },
-  { href: "/projects", label: "Projects" },
+  { href: "/projects", label: "Work" },
   { href: "/#experience", label: "Experience" },
   { href: "/#contact", label: "Contact" },
 ] as const;
@@ -55,17 +54,14 @@ export const about = {
   label: "About",
   title: "About Me",
   paragraphs: [
-    "I am a **Software Developer** and **Data Scientist** passionate about building intelligent systems that solve real-world problems. My work sits at the intersection of software engineering, data science, automation, and business intelligence, where I transform complex data and operational challenges into practical, scalable solutions.",
-    "I build modern web applications, engineer data pipelines, integrate third-party APIs, and develop automated workflows that connect systems and improve how information moves through an organization. My experience includes working with telematics and fleet platforms such as Wialon, Howen, and MIX, extracting and processing operational data to create custom applications, analytics platforms, and decision-support tools.",
-    "Beyond data analysis, I enjoy taking an idea from concept to a functional product—designing the architecture, developing the application, integrating the necessary services, and deploying a solution that people can actually use. I am particularly interested in AI-powered applications, intelligent automation, and software that turns data into measurable business value.",
+    "I built intelligent **systems** that turn messy operational data into products people actually use — telematics, APIs, automation, and the decision layer on top.",
   ],
-  tagline:
-    "I believe technology should do more than display information. It should simplify processes, reduce repetitive work, reveal opportunities, and help people make better decisions.",
+  tagline: "Technology should simplify the process, not add another screen.",
 } as const;
 
 export const experience = [
   {
-    title: "Software Developer | Data Scientist",
+    title: "Data Scientist",
     company: "Controltech Limited",
     period: "Present",
     location: "Kenya",
@@ -201,6 +197,8 @@ export type Project = {
   liveDemoUrl?: string;
   githubUrl?: string;
   bookDemo?: boolean;
+  /** Set when the case study shipped inside a listed employer. */
+  company?: string;
 };
 
 export const projects: Project[] = [
@@ -210,7 +208,8 @@ export const projects: Project[] = [
     title: "Fleet Management & Telematics Intelligence",
     subtitle: "Turning vehicle telemetry into decisions operators can act on",
     org: "Production work in telematics & fleet operations",
-    tag: "Featured · Fleet Intelligence",
+    tag: "Fleet Intelligence",
+    company: "Controltech Limited",
     image: "/images/projects/fleet-telematics-dashboard.png",
     problem:
       "Telematics platforms collect GPS, engine, fuel, and sensor data at scale — but operations teams still jump between tracking consoles, spreadsheets, and ERP screens. The data exists. The decision layer does not.",
@@ -278,6 +277,7 @@ export const projects: Project[] = [
     subtitle: "SOP-grounded answers without interrupting managers",
     org: "Internal product · RAG",
     tag: "Enterprise AI",
+    company: "Controltech Limited",
     image: "/images/projects/erp-ai-helpdesk.jpg",
     problem:
       "Staff across multiple countries were hunting through SOPs or interrupting managers for routine ERP process questions — creating delays and inconsistent guidance.",
@@ -398,6 +398,14 @@ export const projects: Project[] = [
     bookDemo: true,
   },
 ];
+
+export function projectsForCompany(company: string) {
+  return projects.filter((project) => project.company === company);
+}
+
+export function independentProjects() {
+  return projects.filter((project) => !project.company);
+}
 
 export const expertise = [
   {

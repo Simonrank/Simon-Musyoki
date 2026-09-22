@@ -312,6 +312,44 @@
     text-wrap: pretty;
   }
 
+  /* ---------- Nav links ---------- */
+
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    padding: 0.5rem 0.75rem;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color var(--dur-base) var(--ease);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.35rem;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur-base) var(--ease);
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: var(--foreground);
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
+  }
+
   /* ---------- Buttons ---------- */
 
   .btn {

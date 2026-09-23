@@ -10,7 +10,7 @@ export const siteConfig = {
     "I built systems that connect telematics, APIs, and operations — then put the decision on a screen.",
   email: "simonmusyoki2019@gmail.com",
   location: "Nairobi, Kenya",
-  cvPath: "/images/Simon_cv.pdf",
+  cvPath: "/images/Simon Musyoki.pdf",
   cvFileName: "Simon_Musyoki_CV.pdf",
   social: {
     linkedin: "https://www.linkedin.com/in/simon-musyoki-64a52232a/",
